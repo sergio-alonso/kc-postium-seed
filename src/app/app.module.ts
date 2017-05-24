@@ -37,12 +37,6 @@ import { SearchBoxComponent } from './search-box/search-box.component';
     HttpModule
   ],
 
-  /*-----------------------------------------------|
-   | ~~~ Blue Path ~~~                             |
-   |-----------------------------------------------|
-   | No olvides declarar FromNowPipe en el módulo. |
-   |-----------------------------------------------*/
-
   declarations: [
     AppComponent,
     AutoGrowDirective,
@@ -56,7 +50,8 @@ import { SearchBoxComponent } from './search-box/search-box.component';
     PostsByCategoryComponent,
     PostsListComponent,
     PostsViewComponent,
-    SearchBoxComponent
+    SearchBoxComponent,
+    FromNowPipe
   ],
   providers: [
     BackendUriProvider,
