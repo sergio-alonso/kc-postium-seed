@@ -5,12 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 
-/*----------------------------------------------------------|
- | ~~~ Blue Path ~~~                                        |
- |----------------------------------------------------------|
- | Importa FromNowPipe para poder usarlo en este documento. |
- |----------------------------------------------------------*/
-
+import { FromNowPipe } from './from-now.pipe';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { AutoGrowDirective } from './auto-grow.directive';
