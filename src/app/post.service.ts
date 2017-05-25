@@ -14,24 +14,8 @@ export class PostService {
     @Inject(BackendUri) private _backendUri) { }
 
   getPosts(): Observable<Post[]> {
-
-    /*----------------------------------------------------------------------------------------------|
-     | ~~~ Pink Path ~~~                                                                            |
-     |----------------------------------------------------------------------------------------------|
-     | Pide al servidor que te retorne los posts ordenados de más reciente a menos, teniendo en     |
-     | cuenta su fecha de publicación. Filtra también aquellos que aún no están publicados, pues no |
-     | deberían mostrarse al usuario.                                                               |
-     |                                                                                              |
-     | En la documentación de 'JSON Server' tienes detallado cómo hacer el filtrado y ordenación de |
-     | los datos en tus peticiones, pero te ayudo igualmente. La querystring debe tener estos       |
-     | parámetros:                                                                                  |
-     |                                                                                              |
-     |   - Filtro por fecha de publicación: publicationDate_lte=x (siendo x la fecha actual)        |
-     |   - Ordenación: _sort=publicationDate&_order=DESC                                            |
-     |----------------------------------------------------------------------------------------------*/
-
     return this._http
-      .get(`${this._backendUri}/posts`)
+      .get(`${this._backendUri}/posts?publicationDate_lte=${+ new Date()}&_sort=publicationDate&_order=DESC`)
       .map((response: Response): Post[] => Post.fromJsonToList(response.json()));
   }
 
