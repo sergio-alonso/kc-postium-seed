@@ -20,26 +20,8 @@ export class PostService {
   }
 
   getUserPosts(id: number): Observable<Post[]> {
-
-    /*----------------------------------------------------------------------------------------------|
-     | ~~~ Red Path ~~~                                                                             |
-     |----------------------------------------------------------------------------------------------|
-     | Ahora mismo, esta función está obteniendo todos los posts existentes, y solo debería obtener |
-     | aquellos correspondientes al autor indicado. Añade los parámetros de búsqueda oportunos para |
-     | que retorne solo los posts que buscamos. Ten en cuenta que, además, deben estar ordenados    |
-     | por fecha de publicación descendente y obtener solo aquellos que estén publicados.           |
-     |                                                                                              |
-     | En la documentación de 'JSON Server' tienes detallado cómo hacer el filtrado y ordenación de |
-     | los datos en tus peticiones, pero te ayudo igualmente. La querystring debe tener estos       |
-     | parámetros:                                                                                  |
-     |                                                                                              |
-     |   - Filtro por autor: author.id=x (siendo x el identificador del autor)                      |
-     |   - Filtro por fecha de publicación: publicationDate_lte=x (siendo x la fecha actual)        |
-     |   - Ordenación: _sort=publicationDate&_order=DESC                                            |
-     |----------------------------------------------------------------------------------------------*/
-
     return this._http
-      .get(`${this._backendUri}/posts`)
+      .get(`${this._backendUri}/posts?author.id=${id}&publicationDate_lte=${+ new Date()}&_sort=publicationDate&_order=DESC`)
       .map((response: Response): Post[] => Post.fromJsonToList(response.json()));
   }
 

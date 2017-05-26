@@ -3,14 +3,7 @@
     <div class="avatar">
       <img [src]="post.author.avatar">
     </div>
-    <div class="author">
-      <!--
-      |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-      | Red Path                                                        |
-      |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-      | Un clic sobre el autor debería navegar a su colección de posts. |
-      |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-      -->
+    <div class="author" (click)="onUserSelect()">
       <span class="name blink-font">{{ post.author.name }}</span>
       <span class="date">{{ post.publicationDate|fromNow }}</span>
     </div>

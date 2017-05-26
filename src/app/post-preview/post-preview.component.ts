@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { Post } from './../post';
+import { User } from './../user';
 
 @Component({
   selector: 'post-preview',
@@ -11,18 +12,16 @@ export class PostPreviewComponent {
 
   @Input() post: Post;
 
-  /*------------------------------------------------------------------------------------------------------------------|
-   | ~~~ Red Path ~~~                                                                                                 |
-   |------------------------------------------------------------------------------------------------------------------|
-   | Expón un atributo de salida con el decorador correspondiente. El tipo de dicho atributo debe permitir la emisión |
-   | de eventos; la idea es enviar al componente padre el usuario sobre el cuál se ha hecho clic. Y puesto que dicho  |
-   | clic se realiza en el template de este componente, necesitas, además, un manejador para el mismo.                |
-   |------------------------------------------------------------------------------------------------------------------*/
+    @Output('userClick') selectUserRequest = new EventEmitter<User>();
 
-    @Output() onClick = new EventEmitter<Post>();
+    selectUser() : void {
+	this.selectUserRequest.emit(this.post.author);
+    }
 
-    onSelect(post: Post) : void {
-	this.onClick.emit(post);
+    @Output('postClick') selectPostRequest = new EventEmitter<Post>();
+
+    selectPost() : void {
+	this.selectPostRequest.emit(this.post);
     }
 
   plainTextToHtml(text: string): string {

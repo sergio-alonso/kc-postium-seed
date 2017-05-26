@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Post } from './../post';
+import { User } from './../user';
 
 @Component({
   selector: 'posts-list',
@@ -12,17 +13,13 @@ export class PostsListComponent {
 
   @Input() posts: Post[];
 
-  /*------------------------------------------------------------------------------------------------------------------|
-   | ~~~ Red Path ~~~                                                                                                 |
-   |------------------------------------------------------------------------------------------------------------------|
-   | Maneja el evento del componente PostPreviewComponent que indica la selección del autor de un post y navega a la  |
-   | dirección correspondiente. Recuerda que para hacer esto necesitas inyectar como dependencia el Router de la app. |
-   | La ruta a navegar es '/posts/users', pasando como parámetro el identificador del autor.                          |
-   |------------------------------------------------------------------------------------------------------------------*/
+   onUserClick(user: User): void {
+      this.router.navigate(['/posts/users', user.id]);
+   }
 
    constructor(private router: Router,){}
 
-   onClick(post: Post): void {
+   onPostClick(post: Post): void {
       this.router.navigate(['/posts', post.id]);
    }
 }
