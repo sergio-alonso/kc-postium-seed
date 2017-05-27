@@ -1,15 +1,10 @@
 <form #f="ngForm" novalidate>
-  <!--
-  |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-  | Purple Path                                                                                     |
-  |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-  | El campo 'title' debe enlazarse al formulario a través de la directiva 'ngModel'. Recuerda usar |
-  | el nombre que se ha definido en la entidad Post. Además, este campo debe ser obligatorio.       |
-  |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-  -->
   <input type="text"
          placeholder="Título"
-         class="u-full-width">
+         class="u-full-width"
+         [{ngModel}]="model.title"
+         name="title"
+         required>
   <!--
   |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
   | Purple Path                                                                                     |
