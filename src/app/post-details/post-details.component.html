@@ -15,13 +15,5 @@
   <div class="html-text" [innerHtml]="plainTextToHtml(post.intro)"></div>
   <hr>
   <div class="html-text" [innerHtml]="plainTextToHtml(post.body)"></div>
-  <!--
-  |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-  | Yellow Path                                                              |
-  |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-  | Suscribe el componente CategoryBoxComponent al evento que hayas definido |
-  | en él para notificar los clics sobre las categorías del post.            |
-  |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-  -->
-  <category-box [categories]="post.categories"></category-box>
+  <category-box [categories]="post.categories" (categoryClick)="onCategoryClick($event)"></category-box>
 </div>
