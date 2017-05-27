@@ -11,17 +11,12 @@
             [{ngModel}]="model.intro"
             name="intro"
             required></textarea>
-  <!--
-  |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-  | Purple Path                                                                                     |
-  |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-  | El campo 'body' debe enlazarse al formulario a través de la directiva 'ngModel'. Recuerda usar  |
-  | el nombre que se ha definido en la entidad Post. Además, este campo debe ser obligatorio.       |
-  |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-  -->
   <textarea placeholder="Cuenta tu historia"
             class="u-full-width georgia-font"
-            autogrow></textarea>
+            autogrow
+            [{ngModel}]="model.body"
+            name="body"
+            required></textarea>
   <div>
     <div>
       <label (click)="setScheduling(false)">
