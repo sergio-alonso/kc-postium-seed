@@ -5,17 +5,12 @@
          [{ngModel}]="model.title"
          name="title"
          required>
-  <!--
-  |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-  | Purple Path                                                                                     |
-  |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-  | El campo 'intro' debe enlazarse al formulario a través de la directiva 'ngModel'. Recuerda usar |
-  | el nombre que se ha definido en la entidad Post. Además, este campo debe ser obligatorio.       |
-  |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-  -->
   <textarea placeholder="Introduce tu historia"
             class="u-full-width georgia-font"
-            autogrow></textarea>
+            autogrow
+            [{ngModel}]="model.intro"
+            name="intro"
+            required></textarea>
   <!--
   |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
   | Purple Path                                                                                     |
