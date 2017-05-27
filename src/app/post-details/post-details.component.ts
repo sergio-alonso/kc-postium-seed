@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NativeWindow } from './../window';
 import { Post } from './../post';
 import { User } from './../user';
+import { Category } from './../category';
 
 @Component({
   templateUrl: './post-details.component.html',
@@ -31,12 +32,8 @@ export class PostDetailsComponent implements OnInit {
       this.router.navigate(['/posts/users', this.post.author.id]);
    }
 
-  /*--------------------------------------------------------------------------------------------------------------------|
-   | ~~~ Yellow Path ~~~                                                                                                |
-   |--------------------------------------------------------------------------------------------------------------------|
-   | Añade un manejador que navegue a la dirección correspondiente a los posts de la categoría indicada. Recuerda que   |
-   | para hacer esto necesitas inyectar como dependencia el Router de la app. La ruta a navegar es '/posts/categories', |
-   | pasando como parámetro el identificador de la categoría.                                                           |
-   |--------------------------------------------------------------------------------------------------------------------*/
+    onCategoryClick(category: Category): void {
+      this.router.navigate(['/posts/categories', category.id]);
+   }
 
 }
