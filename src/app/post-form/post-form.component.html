@@ -1,4 +1,4 @@
-<form #f="ngForm" novalidate>
+<form #f="ngForm" name="new-post" novalidate>
   <input type="text"
          placeholder="Título"
          class="u-full-width"
@@ -37,14 +37,7 @@
              [ngModel]="_nowDatetimeLocal">
     </div>
   </div>
-  <!--
-  |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-  | Purple Path                                                              |
-  |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-  | Deshabilita el botón 'Publicar' en caso de que el formulario no sea      |
-  | válido. Para ello vas a necesitar acceder al 'FormGroup' del formulario. |
-  |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-  -->
   <button type="submit"
-          class="button-primary u-pull-right">Publicar</button>
+          class="button-primary u-pull-right"
+          ng-disabled="new-post.$invalid">Publicar</button>
 </form>
