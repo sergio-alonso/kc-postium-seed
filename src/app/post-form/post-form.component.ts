@@ -52,16 +52,6 @@ export class PostFormComponent implements OnInit {
   }
 
   submitPost(form: FormGroup): void {
-
-    /*-------------------------------------------------------------------------------------------------------------|
-     | ~~~ Purple Path ~~~                                                                                         |
-     |-------------------------------------------------------------------------------------------------------------|
-     | Aquí no tienes que hacer nada más allá de comprobar que los datos del formulario se recogen correctamente y |
-     | tienen 'forma' de Post. Si no es así, al hacer 'Post.fromJson()' se instanciará un post que no se parece en |
-     | nada a lo indicado en el formulario. Por tanto, pon especial atención a que los nombres indicados en los    |
-     | distintos elementos del formulario se correspondan con las propiedades de la clase Post.                    |
-     |-------------------------------------------------------------------------------------------------------------*/
-
     let post: Post = Post.fromJson(form.value);
     post.likes = [];
     post.categories = [];
