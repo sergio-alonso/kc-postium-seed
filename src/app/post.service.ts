@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import "rxjs/add/operator/map";
 
@@ -8,6 +8,8 @@ import { Post } from './post';
 
 @Injectable()
 export class PostService {
+
+  private headers = new Headers({'Content-Type': 'application/json'});
 
   constructor(
     private _http: Http,
@@ -51,18 +53,9 @@ export class PostService {
   }
 
   createPost(post: Post): Observable<Post> {
-
-    /*----------------------------------------------------------------------------------|
-     | ~~~ Purple Path ~~~                                                              |
-     |----------------------------------------------------------------------------------|
-     | Utiliza el cliente HTTP para guardar en servidor el post indicado. La ruta sobre |
-     | la cual tienes que hacer la petición POST es '/posts'. Recuerda que siempre que  |
-     | se crea una entidad en servidor es una buena práctica retornar la misma con los  |
-     | datos actualizados obtenidos tras la inserción; puedes usar la función estática  |
-     | 'fromJson() para crar un nuevo objeto Post basado en la respuesta HTTP obtenida. |
-     |----------------------------------------------------------------------------------*/
-
-    return null;
+      return this._http
+	  .post(`${this._backendUri}/posts`, JSON.stringify(post), {headers: this.headers})
+	  .map((response: Response): Post => Post.fromJson(response.json()));
   }
 
 }
