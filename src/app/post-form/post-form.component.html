@@ -1,20 +1,23 @@
-<form #f="ngForm" name="new-post" novalidate>
+<form #newPost="ngForm" (ngSubmit)="submitPost(newPost)">
   <input type="text"
          placeholder="Título"
          class="u-full-width"
-         [{ngModel}]="model.title"
+         ngModel
+         #title="ngModel"
          name="title"
          required>
   <textarea placeholder="Introduce tu historia"
             class="u-full-width georgia-font"
             autogrow
-            [{ngModel}]="model.intro"
+            ngModel
+            #intro="ngModel"
             name="intro"
             required></textarea>
   <textarea placeholder="Cuenta tu historia"
             class="u-full-width georgia-font"
             autogrow
-            [{ngModel}]="model.body"
+            ngModel
+            #body="ngModel"
             name="body"
             required></textarea>
   <div>
@@ -39,5 +42,5 @@
   </div>
   <button type="submit"
           class="button-primary u-pull-right"
-          ng-disabled="new-post.$invalid">Publicar</button>
+          [disabled]="!newPost.form.valid">Publicar</button>
 </form>
